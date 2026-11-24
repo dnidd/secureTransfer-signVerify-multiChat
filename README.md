@@ -100,7 +100,7 @@ is copied to a trust store used by receiver to verify message/communication.<br>
 
  keytool -genkeypair -alias alias -keyalg RSA -validity 90 -keystore keystore
  <br>
-#### Examine the key store.:
+#### 2 Examine the key store.:
 keytool -list -v -keystore keystore<br>
    Posttype/Entry type: PrivateKeyEntry
 
@@ -108,14 +108,11 @@ keytool -list -v -keystore keystore<br>
 keytool -export -alias alias -keystore keystore -rfc -file alias.cer<br>
 <b>Examine certificate:</b><br> cat 'alias.cer'<br>
 
-<br>
-
 #### 4 Import certificate into a new trust store. Creates truststore:
 keytool -import -alias aliascert -file alias.cer -keystore truststore
    
 #### 5 Examine the truststore:
 keytool -list -v -keystore truststore
-
 
 ## Run the applications:
 - 🟢 Server (uses the keyStore containing private key):<br>
